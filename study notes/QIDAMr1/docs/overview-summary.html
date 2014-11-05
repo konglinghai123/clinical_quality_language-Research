@@ -1,0 +1,853 @@
+<html>
+  <head>
+    <title>Overview (QIDAM)</title>
+    <link rel='stylesheet' type='text/css' href='stylesheet.css' title='Style' />
+  </head>
+  <body>
+<!-- ========= START OF TOP NAVBAR ======= -->
+    <div class='topNav'>
+      <a name='navbar_top'>
+<!--   -->
+</a>
+      <ul class='navList' title='Navigation'>
+        <li class='navBarCell1Rev'>Overview</li>
+        <li>Class</li>
+        <li>
+          <a href='index-files.html'>Index</a>
+        </li>
+      </ul>
+      <div class='aboutLanguage'>QIDAM</div>
+    </div>
+    <div class='subNav'>
+      <ul class='navList'>
+        <li>
+          <a target='_top' href='index.html?overview-summary.html'>FRAMES</a>&nbsp;&nbsp;
+          <a target='_top' href='overview-summary.html'>NO FRAMES</a>
+        </li>
+      </ul>
+      <div><!--   --></div>
+    </div><!-- ========= END OF TOP NAVBAR ========= -->
+    <div class='header'>
+      <h1 title='Package' class='title'>QIDAM</h1>
+      <div class='docSummary'>
+        <div class='block'>The Health Quality Improvement Domain Analysis Model (QIDAM)
+                    seeks to create a conceptual data model that can be used
+                    to create data mapping expressions. The QIDAM harmonizes
+                    the existing eCQM and CDS data models into a single, unified conceptual model.
+                    This model can be mapped onto existing logical models while defining the structure
+                    and domain concepts required by eCQMs and CDS artifacts.</div>
+      </div>
+    </div>
+    <div class='contentContainer'>
+      <ul class='blockList'>
+        <li class='blockList'>The following data types are the basic primitive types used in some fields:
+<table border="0" cellpadding="3" cellspacing="0" summary="Primitive Types table">
+<tr>
+  <th class="colFirst" scope="col">Type</th>
+  <th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+<tr class='altColor'>
+  <td class="colFirst"><a name="Code">Code</a>
+  <td class="colLast">A value taken from a controlled terminology, such as a code from LOINC
+</tr>
+<tr class='rowColor'>
+  <td class="colFirst"><a name="CodeableConcept">CodeableConcept</a>
+  <td class="colLast">A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text
+</tr>
+<tr class='altColor'>
+  <td class="colFirst"><a name="Range">Range</a>
+  <td class="colLast">A range expressed over a quantity (i.e., has low and high values)
+</tr>
+<tr class='rowColor'>
+  <td class="colFirst"><a name="Ratio">Ratio</a>
+  <td class="colLast">A relationship between two Quantity values expressed as a numerator and a denominator.
+</tr>
+<tr class='altColor'>
+  <td class="colFirst"><a name="Quantity">Quantity</a>
+  <td class="colLast">A numeric value expressing an amount, with or without units
+</tr>
+<tr class='rowColor'>
+  <td class="colFirst"><a name="Text">Text</a>
+  <td class="colLast">A string of characters, formatted or unformatted for presentation
+</tr>
+<tr class='altColor'>
+  <td class="colFirst"><a name="TimePoint">TimePoint</a>
+  <td class="colLast">A particular time point that may be expressed at different levels of granularity such as date or date+time (e.g., Nov 15 2013, or Nov 15  2013 11:42:07 am EST)
+</tr>
+<tr class='rowColor'>
+  <td class="colFirst"><a name="TimePeriod">TimePeriod</a>
+  <td class="colLast">An interval of time bounded by TimePoint values indicating the beginning and the ending of the period
+</tr>
+<tr class='altColor'>
+  <td class="colFirst"><a name="YesNo">YesNo</a>
+  <td class="colLast">A value of either 'Yes' or 'No'
+</tr>
+<tr class='rowColor'>
+  <td class="colFirst"><a name="Value">Value</a>
+  <td class="colLast">Any of the above types
+</tr>
+</tbody>
+</table></li>
+        <li class='blockList'>
+<table class="packageSummary" border="0" cellpadding="3" cellspacing="0" summary="Class Summary table, listing classes, and an explanation">
+<caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tbody>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/Act.html'>Act</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>The object of an action, the specific thing that is being done or proposed, e.g., a medication is being administered.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/CareProgramParticipation.html'>CareProgramParticipation</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Participation of a patient in a recognized program of care such as a care plan, a chemotherapy protocol, or a clinical trial.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/Communication.html'>Communication</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A communication is a message sent between a sender and a recipient. </div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/CompositeIntravenousMedicationAdministration.html'>CompositeIntravenousMedicationAdministration</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Parameters for IV fluid administration that may consist of one or more additives mixed into a diluent. Additives and diluents are represented as constituents with the appropriate constituentType.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/DeviceUse.html'>DeviceUse</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Application or use of equipment or device for the patient, e.g., wheelchair, Holter monitor, pacemaker, intra-uterine contraceptive device.
+
+Note that <code>DeviceUse</code> does not model the act of implanting a device on or in the patient. That is modeled as a Procedure.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Diet.html'>Diet</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'><code>Diet</code>/nutrition to be administered to a patient.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/Encounter.html'>Encounter</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>An interaction between a patient and healthcare provider(s) to provide healthcare service(s) or assess the health status of a patient.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Goal.html'>Goal</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A defined target or measure to be achieved in the process of patient care; an expected outcome. A typical goal is expressed as a change in status expected at a defined future time.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/Imaging.html'>Imaging</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>An <code>Imaging</code> examination, e.g., Chest Radiograph - PA and Lateral.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Immunization.html'>Immunization</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Administration of vaccines to patients across all healthcare disciplines in all care settings and all regions. This does not include the administration of non-vaccine agents, even those that may have or claim immunological effects.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/LaboratoryTest.html'>LaboratoryTest</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A procedure to test a tissue or fluid specimen from a patient, e.g., complete blood count, blood culture.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/MedicationTreatment.html'>MedicationTreatment</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Prevention or treatment of a condition using medications.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/PatientControlledAnalgesia.html'>PatientControlledAnalgesia</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Parameters for Patient Controlled Analgesia (PCA) administration, e.g., morphine PCA, 5 mg loading dose, followed by 10 mg/hr basal rate, 1 mg demand dose, lockout interval 10 min.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Procedure.html'>Procedure</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>An activity performed with or on a patient as part of the provision of care. This can be a physical "thing" like an operation, or less invasive like counseling or hypnotherapy. Examples include surgical procedures, diagnostic procedures, endoscopic procedures,and biopsies, and exclude things for which there are specific types of actions defined, such as those for immunizations, medication administrations, and nutrition administration.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/EncounterCondition.html'>EncounterCondition</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A condition that is considered within the encounter and the role that the condition played within the encounter, e.g., diagnosis at discharge.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Hospitalization.html'>Hospitalization</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Details about an admission to a hospital.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/Indication.html'>Indication</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>An asserted clinical reason justifying an action such as to prescribe a medication, or to perform a procedure or a test.
+
+The reason can be specified as a code or as another statement, e.g., code for diabetes (ICD-9-CM 250.0) or Condition (with diabetes code) documented elsewhere in a patient's record.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Constituent.html'>Constituent</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A component of a multi-component substance administration. May be an additive in a composite IV.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/AdministeredDose.html'>AdministeredDose</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>How the substance was administered to the patient.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Dispense.html'>Dispense</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Details of the dispensation of a supply (e.g., medication, device) such as the number of days of supply, and the quantity (to be) dispensed.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/Dosage.html'>Dosage</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Details, such as quantity, rate, route, schedule of administering a substance, e.g., medication, immunization, or enteral nutrition.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/DosageInstruction.html'>DosageInstruction</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Indicates how the substance is to be administered to or used by the patient.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/EnteralFormula.html'>EnteralFormula</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Food to be administered through a tube placed in the nose, mouth, stomach, or small intestine. </div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/NutrientModification.html'>NutrientModification</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Constraints on the quantity of diet components. 
+
+<code>NutrientModification</code> consists of the nutrient (e.g., Sodium) and the amount in the diet (e.g., 20-30g).</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/NutritionItem.html'>NutritionItem</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>The details of the nutrition item, with specific attributes depending on the mode by which the nutrition is administered.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/NutritionalSupplement.html'>NutritionalSupplement</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A preparation intended to supplement the diet and provide calories or nutrients, such as vitamins, minerals, fiber, fatty acids, carbohydrates, or amino acids, that may be missing or may not be consumed in sufficient quantity in a person's diet. Such products may be ordered in addition to the diet (either general or therapeutic) to enhance a person’s intake. Supplemental food products provide some but not all of a patient’s nutritional needs. </div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/OralDiet.html'>OralDiet</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Food and/or a nutritional supplement prepared from food ingredients that is self-administered by a patient and consumed orally.
+
+A patient can have only one effective oral diet at a time.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/TextureModification.html'>TextureModification</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Modifies the texture for one or more types of food in a diet, e.g., ground, chopped, or puree. Texture modification is part of the diet specification and may have different textures ordered for different food groups, e.g., ground meat.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/VaccinationProtocol.html'>VaccinationProtocol</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Information about the protocol(s) under which the vaccine was administered.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Action.html'>Action</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Describes the mode in which the act topic exists within a clinical statement. The action modality itself is abstract (i.e., it cannot be used within a clinical statement). It defines subtypes such as order and performance. </div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/ActionStatus.html'>ActionStatus</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Class describing the status of an action.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Order.html'>Order</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>An instruction by a healthcare provider to another healthcare provider to perform some action.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/Performance.html'>Performance</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>The actual performance or execution of a healthcare-related action, e.g., 3rd dose of Hepatitis B vaccine administered on Dec 4th 2012, or appendectomy performed today.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Plan.html'>Plan</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Description of action that is planned to be performed. Typically, this would include a time at which the action is scheduled to be performed.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/Proposal.html'>Proposal</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>An offer or a suggestion to perform a healthcare act. A recommendation to a provider is an example of proposal made by a CDS system. A proposal must be accepted by an entity in order for it to be performed.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/ProposalAgainst.html'>ProposalAgainst</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A recommendation from a clinical decision support system or advice from a consultation to not perform an act.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/BodySite.html'>BodySite</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A location on a person's body.  e.g., left breast, heart.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Participant.html'>Participant</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Person playing a specified role in an action.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/Schedule.html'>Schedule</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>The recurrening pattern of events, e.g., three times a day after meals. 
+
+A schedule that specifies an event that may occur multiple times. Schedules should not be used to record when events did happen but rather when actions or events are expected or requested to occur. 
+
+A schedule can be either a list of "calendar time" events (periods on which the event ought to occur), or a single event with repeating criteria, or just repeating criteria with no actual event (as represented by the 'cycle' concept and attribute).
+
+Given these variations in how <code>Schedule</code> can be specified, it is not modeled in this conceptual specification. A detailed model should be included in the logical model specification.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/ComputerSystem.html'>ComputerSystem</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A service or information system excluding medical devices. Such services may include a communication service that generates an alert, a system that supports the persistence and retrieval of clinical information, or a clinical decision support system that may be the source of a proposal for a procedure.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/Device.html'>Device</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>An instance of a manufactured product used in the provision of healthcare without being substantially changed through that activity. The device may be a machine, an insert, a computer, an application, etc. This includes durable (reusable) medical equipment as well as disposable equipment used for diagnostics, treatment, and research for healthcare and public health.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Entity.html'>Entity</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A physical thing, group of physical things, or an organization. It is a concrete class that can be used as is or specialized as needed.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/EntityCharacteristic.html'>EntityCharacteristic</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Specific factors about any entity such as the patient, practitioner, organization, or product. Included are behavioral factors, social or cultural factors, available resources, and preferences. Behaviors reference responses or actions that affect (either positively or negatively) health or healthcare. Included in this category are mental  health issues, adherence issues unrelated to other factors or resources, coping ability, grief issues, and substance use/abuse. Social/cultural factors are characteristics of an individual related to family/caregiver support, education and literacy (including health literacy), primary language, cultural beliefs (including health beliefs), persistent life stressors, spiritual and religious beliefs, immigration status, and history of abuse or neglect. Resources are means available to a patient to meet health and healthcare needs, which would include caregiver support, insurance coverage, financial resources, and community resources to which the patient is already connected and receiving benefit.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Location.html'>Location</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Details about a physical place where services are provided and resources and participants may be stored, found, contained or accommodated.
+
+A location includes both incidental locations (a place used for healthcare without prior designation or authorization) and dedicated, formally appointed locations. Locations may be private, public, mobile or fixed and scale from small freezers to full hospital buildings or parking garages.
+
+Examples of locations are:
+<ul>
+ <li>Building, ward, corridor or room</li>
+ <li>Freezer, incubator</li>
+ <li>Vehicle or lift</li>
+ <li>Home, shed, or garage</li>
+ <li>Road, parking place, or park</li>
+</ul></div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/ManufacturedProduct.html'>ManufacturedProduct</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A product used in the care of a patient.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Medication.html'>Medication</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Description of the medication administered in a treatment.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/MedicationIngredient.html'>MedicationIngredient</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>The composition of the medication.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/NutritionProduct.html'>NutritionProduct</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A manufactured item administered for a patient's nutrition.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/Organization.html'>Organization</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A formally or informally recognized grouping of people or organizations formed for achieving some type of collective action - includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Patient.html'>Patient</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Demographics and other administrative information about a person receiving care or other health-related services.
+
+The data in the element covers the "who" information about the patient; its attributes focus on the demographic information necessary to support the administrative, financial, and logistic procedures.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/Person.html'>Person</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Demographic and identification information for an individual.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Practitioner.html'>Practitioner</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Demographics and qualification information for an individual directly or indirectly involved in the provisioning of healthcare.
+
+<code>Practitioner</code> covers all individuals who are engaged in the healthcare process and healthcare-related services as part of their professional responsibilities. Practitioners include (but are not limited to):
+
+<ul>
+ <li>Physicians, dentists, pharmacists</li>
+ <li>Physician assistants, nurses, scribes</li>
+ <li>Midwives, dietitians, therapists, optometrists, paramedics</li>
+ <li>Medical technicians, laboratory scientists, prosthetic technicians, radiographers</li>
+ <li>Social workers, professional home carers, official volunteers</li>
+ <li>Receptionists handling patient registration</li>
+ <li>IT personnel merging or unmerging patient records</li>
+</ul></div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/Qualification.html'>Qualification</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Qualifications obtained by training and certification.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/RelatedPerson.html'>RelatedPerson</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Information about a person involved in a patient's care, but who is neither the target of healthcare nor has a professional responsibility in the care process.
+
+RelatedPersons typically have a personal or non-healthcare-specific professional relationship to the patient. A <code>RelatedPerson</code> element is primarily used for attribution of information since RelatedPersons are often a source of information about the patient. Example RelatedPersons are:
+
+<ul>
+ <li>Patient's wife or husband</li>
+ <li>Patient's relatives or friends</li>
+ <li>Neighbor bringing a patient to the hospital</li>
+ <li>Patient's attorney or guardian</li>
+</ul></div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/Specimen.html'>Specimen</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A sample of tissue, blood, urine, etc., taken for diagnostic examination or evaluation.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Vaccine.html'>Vaccine</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Details about the vaccine product administered to the patient.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/ClinicalStatement.html'>ClinicalStatement</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A record of something of clinical relevance that is observed, is being done, has been done, can be done, or is intended or requested to be done. This class serves as the basis for other more specific clinical statements, such as a statement that an observation has occurred or that a procedure has not been proposed.
+
+Note that there are currently three types of clinical statements:
+
+<ol>
+ <li>A StatementOfOccurrence which indicates that the topic of the statement has or will occur.</li>
+ <li>A StatementOfNonOccurrence which indicates that the topic of the statement has not occurred. The statement author is explicitly declaring that the statement's topic did not occur.  This supports open-world reasoning in which the lack of a StatementOfOccurrence within a particular database does not imply that the topic did not occur.  Therefore, an explicit statement about non-occurrence must be made.</li>
+ <li>A StatementOfUnknownOccurrence which represents an explicit statement that it is not known whether something has occurred.</li>
+</ol></div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/StatementModality.html'>StatementModality</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>The modality of a Clinical Statement describes the way the topic exists, happens, or is experienced.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/StatementOfNonOccurrence.html'>StatementOfNonOccurrence</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A record of something of clinical relevance generally made by a patient, practitioner, or system stating that the statement's topic + modality did not occur.
+
+For example, a patient may assert that they have NOT HAD FEVER in the past seven days. This is an explicit assertion about a non-occurrence.  This is not the same as there being NO STATEMENTS about the patient having fever in the past seven days (which could be due to missing or incomplete records).</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/StatementOfOccurrence.html'>StatementOfOccurrence</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A record of something of clinical relevance generally made by a patient, practitioner, or system stating the occurrence of the statement's topic.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/StatementOfUnknownOccurrence.html'>StatementOfUnknownOccurrence</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A record of something of clinical relevance generally made by a patient, practitioner, or system stating that it is not known that the statement's topic + modality has occurred.
+
+For example, a patient may assert that they do not know if they had rheumatic fever in their childhood. This is an explicit assertion about an unknown occurrence.  This is not the same as there being NO STATEMENTS about the patient having had rheumatic fever in their childhood (which could be due to missing or incomplete records).</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/StatementTopic.html'>StatementTopic</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>The topic of a clinical statement. Generally statement topics fall into two broad categories: (1) statements about things that are observed (e.g., a clinical observation such as a blood pressure measurement or a condition such as diabetes) and (2) statements about clinical actions that ought to be, may have been, have been, or will be done (e.g., a proposal for an imaging procedure or the performance of an angioplasty).</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/AdverseReaction.html'>AdverseReaction</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>An adverse event caused by exposure to some agent (e.g., a medication, immunization, food, or environmental agent).
+
+An adverse reaction can range from a mild reaction, such as a harmless rash to a severe and life-threatening condition. It can occur immediately or develop over time. For example, a patient may develop a rash after taking a particular medication. </div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/AllergyIntolerance.html'>AllergyIntolerance</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A description of an undesirable physiologic or other reaction to an external stimulus.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/CareExperience.html'>CareExperience</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Information collected from a consumer, patient, or family member about their perception of the care they received or from a caregiver about the care provided. Information collected includes the elements of care coordination, communication, whole-person approach to care, access to care, timeliness of care, and information sharing. Experience also encompasses the patient’s outcomes from care provided in the past. For example, a patient receiving chemotherapy who has not responded to first-line medication treatment or who no longer responds to such therapy may require second-tier treatment. Such a patient’s experience of care is an important factor in defining subsequent treatment which can be driven by patient preference. </div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Condition.html'>Condition</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Used to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including recording a Diagnosis during an Encounter, or populating a problem List or a Summary Statement, such as a Discharge Summary.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/Contraindication.html'>Contraindication</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A concern about the performance of an action (proposed, ongoing, or past), e.g., medication intake, due to a health reason. A contraindication is a specific situation in which a drug, procedure, or surgery should not be used because it may be harmful to the patient. e.g., <code>Contraindication</code> to gentamycin due to poor kidney function.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Exposure.html'>Exposure</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'><code>Exposure</code> to an agent or a healthcare action that is believed to have consequences.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/FamilyHistory.html'>FamilyHistory</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Significant health event or condition for people related to the subject, relevant in the context of care for the subject.
+
+This information can be known to different levels of accuracy. Sometimes the person can be identified ("my aunt Agatha"), and sometimes all that is known is that the person was an uncle.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Inference.html'>Inference</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>An inference made, about the patient's health, based on other statements.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/ManifestedSymptom.html'>ManifestedSymptom</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Signs and symptoms that were observed as part of the event.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/MicrobiologySensitivityResult.html'>MicrobiologySensitivityResult</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Findings of the microbiology sensitivity test. This element is used to specify traditional, culture-isolate- run susceptibilities. It is not used to specify genetic methods for organism sensitivity.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/Observable.html'>Observable</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>The result of interviews, examinations, medical investigations or diagnostics. e.g., the symptoms and signs noted during the history and physical.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/ObservationResult.html'>ObservationResult</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Assertions and measurements made about a patient.
+
+ObservationResults are a central element in healthcare used to support diagnosis, monitor progress, determine baselines and patterns and even capture demographic characteristics. Fundamentally, observations are name/value pair assertions.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/OrganismSensitivity.html'>OrganismSensitivity</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Sensitivity of an organism to a specified antimicrobial agent.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/Prediction.html'>Prediction</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Concept representing the likely course of a disease or condition.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/Qualifier.html'>Qualifier</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Further qualifies the concept it modifies. For instance, when associated with a condition, a qualifier may describe the intensity of pain or the criticality of the condition.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/RelatedObservation.html'>RelatedObservation</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A relationship of a specified type between two statements about ObservationResults.</div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/ResultGroup.html'>ResultGroup</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>A group of related result values such as a laboratory result panel,  e.g., complete blood count, blood pressure.</div>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='pages/SimpleObservationResult.html'>SimpleObservationResult</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Measurements and simple assertions made about a patient, device or other subject.
+
+Simple observation results may include:
+<ul>
+ <li>Vital signs: temperature, blood pressure, respiration rate</li>
+ <li>Measurements emitted by Devices</li>
+ <li>Personal characteristics: height, weight, eye-color</li>
+ <li>Social history: tobacco use, family supports, cognitive status</li>
+ <li>Core characteristics: pregnancy status, blood type</li>
+</ul></div>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='pages/Observation.html'>Observation</a>
+            </td>
+            <td class='colLast'>
+              <div class='block'>Indicates that the statement is concerned about observations made about a patient.</div>
+            </td>
+          </tr></tbody></table>
+        </li>
+      </ul>
+      <div class='subTitle'>
+        <div class='block'>This document is the class specification for QIDAM</div>
+      </div>
+    </div>
+<!-- ========= START OF BOTTOM NAVBAR ======= -->
+    <div class='bottomNav'>
+      <a name='navbar_bottom'>
+<!--   -->
+</a>
+      <ul class='navList' title='Navigation'>
+        <li class='navBarCell1Rev'>Overview</li>
+        <li>Class</li>
+        <li>
+          <a href='index-files.html'>Index</a>
+        </li>
+      </ul>
+      <div class='aboutLanguage'>QIDAM</div>
+    </div>
+    <div class='subNav'>
+      <ul class='navList'>
+        <li>
+          <a target='_top' href='index.html?overview-summary.html'>FRAMES</a>&nbsp;&nbsp;
+          <a target='_top' href='overview-summary.html'>NO FRAMES</a>
+        </li>
+      </ul>
+      <div><!--   --></div>
+    </div><!-- ========= END OF BOTTOM NAVBAR ========= -->
+  </body>
+</html>

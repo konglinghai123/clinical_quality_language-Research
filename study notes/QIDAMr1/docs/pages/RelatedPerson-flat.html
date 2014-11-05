@@ -1,0 +1,294 @@
+<html>
+  <head>
+    <link rel='stylesheet' type='text/css' href='../stylesheet.css' title='Style' />
+  </head>
+  <body>
+<!-- ========= START OF TOP NAVBAR ======= -->
+    <div class='topNav'>
+      <a name='navbar_top'>
+<!--   -->
+</a>
+      <ul class='navList' title='Navigation'>
+        <li>
+          <a href='../overview-summary.html'>Overview</a>
+        </li>
+        <li class='navBarCell1Rev'>Class</li>
+        <li>
+          <a href='../index-files.html'>Index</a>
+        </li>
+      </ul>
+      <div class='aboutLanguage'>QIDAM</div>
+    </div>
+    <div class='subNav'>
+      <ul class='navList'>
+        <li>
+          <a target='_top' href='../index.html?pages/RelatedPerson-flat.html'>FRAMES</a>&nbsp;&nbsp;
+          <a target='_top' href='RelatedPerson-flat.html'>NO FRAMES</a>&nbsp;&nbsp;
+          <a href='RelatedPerson.html'>[Hierarchy view]</a>
+        </li>
+      </ul>
+      <div><!--   --></div>
+    </div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+    <div class='header'>
+      <div class='subTitle'>common/entity</div>
+      <h2 title='Class RelatedPerson' class='title'>Class RelatedPerson</h2>
+    </div>
+    <div class='contentContainer'>
+      <ul class='inheritance'>
+        <li>Parent class: 
+          <a href='Person.html'>Person</a>
+        </li>
+      </ul>
+      <div class='description'>
+        <ul class='blockList'>
+          <li class='blockList'>Information about a person involved in a patient's care, but who is neither the target of healthcare nor has a professional responsibility in the care process.
+
+RelatedPersons typically have a personal or non-healthcare-specific professional relationship to the patient. A RelatedPerson element is primarily used for attribution of information since RelatedPersons are often a source of information about the patient. Example RelatedPersons are:
+
+<ul>
+ <li>Patient's wife or husband</li>
+ <li>Patient's relatives or friends</li>
+ <li>Neighbor bringing a patient to the hospital</li>
+ <li>Patient's attorney or guardian</li>
+</ul></li>
+        </ul>
+      </div>
+      <div class='summary'>
+        <ul class='blockList'>
+          <li class='blockList'>
+            <ul class='blockList'>
+              <li class='blockList'>
+<!-- =========== FIELD SUMMARY =========== -->
+                <a name='field_summary'><!--   --></a>
+                <h3>Field Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Field</th>
+<th class="colLast" scope="col">Type and Description</th>
+</tr>
+
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='address'>
+                        <a href='Person.html#address'>address</a>
+                      </a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <code>Address</code>
+                    <blockquote>
+                      <div class='block'>Place or the name of the place where a person is located or may be reached.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='ageAtDeath'>ageAtDeath</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Quantity'>
+                      <code>Quantity</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Age of the related person at the time of their death.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='birthTime'>
+                        <a href='Person.html#birthTime'>birthTime</a>
+                      </a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#TimePoint'>
+                      <code>TimePoint</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Date and time of birth for the individual.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='characteristic'>
+                        <a href='Entity.html#characteristic'>characteristic</a>
+                      </a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='EntityCharacteristic.html'>
+                      <code>EntityCharacteristic</code>
+                    </a>
+                    <code>[0..*]</code>
+                    <blockquote>
+                      <div class='block'>The characteristics of this entity.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='ethnicity'>
+                        <a href='Person.html#ethnicity'>ethnicity</a>
+                      </a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Person's ethnicity.  An ethnicity or ethnic group is a group of people whose members identify with each other through a common heritage, e.g., Hispanic.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='gender'>
+                        <a href='Person.html#gender'>gender</a>
+                      </a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Gender that the patient is considered to have for administration and record keeping purposes.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='isDeceased'>isDeceased</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#YesNo'>
+                      <code>YesNo</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Whether the related person is deceased.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='languages'>
+                        <a href='Person.html#languages'>languages</a>
+                      </a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <code>[0..*]</code>
+                    <blockquote>
+                      <div class='block'>Languages which may be used to communicate with this person.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='name'>
+                        <a href='Person.html#name'>name</a>
+                      </a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Text'>
+                      <code>Text</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Name by which the patient is known.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='preferredLanguage'>
+                        <a href='Person.html#preferredLanguage'>preferredLanguage</a>
+                      </a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Person's language of preference.  E.g., English.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='race'>
+                        <a href='Person.html#race'>race</a>
+                      </a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Person's race.  Race is a classification of humans into large groups by various factors, such as heritable phenotypic characteristics or geographic ancestry, e.g., White, Asian.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='relationship'>relationship</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Nature of the relationship between a patient and the related person.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='telecom'>
+                        <a href='Person.html#telecom'>telecom</a>
+                      </a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <code>TelecomAddress</code>
+                    <blockquote>
+                      <div class='block'>Locatable resource to communicate with a person such as a web page, telephone number (voice, fax or some other resource mediated by telecommunication equipment), e-mail address, or any other locatable resource.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div></table>
+    </div><!-- ========= END OF CLASS DATA ========= -->
+  </body>
+</html>

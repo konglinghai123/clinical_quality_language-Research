@@ -100,12 +100,13 @@ artifacts在HL7中用的很多，比如像每个域对应的类图、excel、xsd
 *  StatementOfOccurrence:表示一个事件的发生(肺炎)或者与患者健康相关的动作(用药)
 *  StatementOfNonOccurrence：表示某个类型的事件或动作并没有发生
 *  StatementOfUnknownOccurrence：表示不知道某个类型的事件或动作有没有发生
-每种类型的statements都包含元数据，主题和模式 如下图，主题 topic指的是该statement的主题如症状、检验结果、手术或免疫接种;模式指的是主题发生、存在或进行的方式，如观察、医嘱、治疗计划;患者诊断可以用StatementOfOccurrence(topic是condition，modality是observation)，手术史可以用StatementOfOccurrence(topic是procedure，modality是performance) 主题和模式都是类，可以通过用属性来进一步描述。
+每种类型的statements都包含元数据，主题和模式 如下图，
+主题 topic指的是该statement的主题如症状、检验结果、手术或免疫接种;模式指的是主题发生、存在或进行的方式，如观察、医嘱、治疗计划;患者诊断可以用StatementOfOccurrence(topic是condition，modality是observation)，手术史可以用StatementOfOccurrence(topic是procedure，modality是performance) 主题和模式都是类，可以通过用属性来进一步描述。
 ![](statementStructure.jpg)
 目前主题有两类：见![](topic.jpg)   
 * Act：用以评估或改变患者健康的已经发生的事-比如药物治疗，血压测量，胸部X射线检查
 * Observable:构成患者健康状态的元素-通常是检查、检验的结果，既往病情、现病情，检验结果，生命体征，过敏，预后
-模式也包含两大类：
+模式modality也包含两大类：
 * Action:临床声明中的act存在的模式，可以有子类型，包括医嘱、order 和执行performance。如果StatementOfOccurrence(topic是procedure，modality是order )指的是手术医嘱。如果StatementOfOccurrence(topic是procedure，modality是peformance )指的是已执行或即将执行的手术
 * Observation：临床声明中的observable存在的模式。不存在子类型
 
@@ -113,11 +114,33 @@ topic和modality要匹配，如果topic是observable，modality必须是observat
 ![](observation.jpg)     
 如果topic是Act，modality必须是Performance,Proposal,proposalAgainst,Order,Plan
 
-1.有关act的临床声明
+1.有关action的临床声明
+如果topic是Act类型(参考5.1.1 共有14种),modality是Action类型
+a CDS system offers a proposal for an MRI exam; the acceptance of the proposal leads to an order for the exam; an appointment is scheduled; and finally the exam is performed at the scheduled time. However, this sequence does not necessarily have to get followed. In fact, providers write orders without a prompt by a CDS system, many orders are fulfilled without an explicit plan being created, and many acts do not require orders if it is within the scope of the responsibility of the person carrying out the action (e.g., a physician counseling the patient on smoking cessation will not write an order, even though a CDS system may propose doing so and a quality measurement system expects a statement reflecting that such counseling was performed)
+![](actionstatements.jpg)
 2.有关observation的临床声明
+如果topic是Observable类型(参考5.4 共有19种),modality是Observation类型(只此一种)
 3.设计原理
+QIDAM利用继承 组合来构建模型元素.这种方法很适合来构建一些易于读写的表达式的结构,允许对模型进行扩展,同时保持了模型内部的一致性.
+患者相关的数据可以视作ClinicalStatement的子类,只有当ClinicalStatement直接包含了声明相关的属性如作者\对象\时间等,modality和topic针对的是临床内容(待执行的手术操作,手术的部位),对于某个具体的声明而言,只需要将相应的modality和topic组合在一起就好.这样就实现了它们的复用,保持了模型的一致性.所有有关order医嘱的声明都有一个叫order的属性,因为它们都用到了同一个Order modality.
 
+Action 和Observable 的子类型都会有自己特殊的字段/属性,
+QIDAM将不同的临床声明分为已经发生的,未发生的,不知道有没有发生的动作或观察.在其他很多地方,比如HL7 RIM模型中是通过一个否定标记来实现的.以此避免推理时出错.
+每种类型的statements都包含元数据，主题和模式
 #### 数据类型、实体和扩展数据类型
+定义了如下高级的数据类型 可以进一步细化
+![](datatypes.png)
 #### 基数和可选性
+QIDAM中基数能够表达元素的出现次数,但可选性则表达不了.遵循如下原则:
+单一基数,图中不出现
+多基数图中表示为0..*
+这里的0不应该理解成是该元素的可选性.
 #### 质量改进的逻辑模型
+逻辑模型用来表达指标\规则\医嘱套餐中等中的表达式,条件等.
+    * 详细描述了某个临床声明如何组合得到,声明的属性如何在表达式中获取/访问
+    * 给已有的类添加一些属性 比如说id
+    * 确定数据类型,实体.扩展数据类型
+    * 确定属性的基数和可选性
+    * 确定逻辑模型的扩展机制
+    *确定需要哪些类 那些属性才能映射到诸如FHIR这些模型中以实现互操作性
 

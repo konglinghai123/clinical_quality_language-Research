@@ -1,6 +1,7 @@
 # Clinical Quality Language
 
-CQF项目的新进展，这种当作language的提法还是蛮新颖的。             
+CQF项目的新进展，这种当作language的提法还是蛮新颖的。  
+目前已经是R1,           
 The Clinical Quality Language (CQL) specification defines a representation for the 
 expression of clinical knowledge that can be used within both the Clinical 
 Decision Support (CDS) and Clinical Quality Measurement (CQM) domains.

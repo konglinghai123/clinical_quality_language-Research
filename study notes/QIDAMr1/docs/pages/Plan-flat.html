@@ -1,0 +1,233 @@
+<html>
+  <head>
+    <link rel='stylesheet' type='text/css' href='../stylesheet.css' title='Style' />
+  </head>
+  <body>
+<!-- ========= START OF TOP NAVBAR ======= -->
+    <div class='topNav'>
+      <a name='navbar_top'>
+<!--   -->
+</a>
+      <ul class='navList' title='Navigation'>
+        <li>
+          <a href='../overview-summary.html'>Overview</a>
+        </li>
+        <li class='navBarCell1Rev'>Class</li>
+        <li>
+          <a href='../index-files.html'>Index</a>
+        </li>
+      </ul>
+      <div class='aboutLanguage'>QIDAM</div>
+    </div>
+    <div class='subNav'>
+      <ul class='navList'>
+        <li>
+          <a target='_top' href='../index.html?pages/Plan-flat.html'>FRAMES</a>&nbsp;&nbsp;
+          <a target='_top' href='Plan-flat.html'>NO FRAMES</a>&nbsp;&nbsp;
+          <a href='Plan.html'>[Hierarchy view]</a>
+        </li>
+      </ul>
+      <div><!--   --></div>
+    </div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+    <div class='header'>
+      <div class='subTitle'>action/modality</div>
+      <h2 title='Class Plan' class='title'>Class Plan</h2>
+    </div>
+    <div class='contentContainer'>
+      <ul class='inheritance'>
+        <li>Parent class: 
+          <a href='Action.html'>Action</a>
+        </li>
+      </ul>
+      <div class='description'>
+        <ul class='blockList'>
+          <li class='blockList'>Description of action that is planned to be performed. Typically, this would include a time at which the action is scheduled to be performed.</li>
+        </ul>
+      </div>
+      <div class='summary'>
+        <ul class='blockList'>
+          <li class='blockList'>
+            <ul class='blockList'>
+              <li class='blockList'>
+<!-- =========== FIELD SUMMARY =========== -->
+                <a name='field_summary'><!--   --></a>
+                <h3>Field Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Field</th>
+<th class="colLast" scope="col">Type and Description</th>
+</tr>
+
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='currentStatus'>
+                        <a href='Action.html#currentStatus'>currentStatus</a>
+                      </a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='ActionStatus.html'>
+                      <code>ActionStatus</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>The status of an action. It is expected that the range of values for statusCode (i.e., the value set) will vary by the subtypes of ActionPhase. For example, Proposal might have one of its status values as Declined.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='expectedPerformanceTime'>expectedPerformanceTime</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#TimePoint'>
+                      <code>TimePoint</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>The time when the planned action is expected to be performed.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='fromProposal'>fromProposal</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='StatementOfOccurrence.html'>
+                      <code>StatementOfOccurrence</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Identifies a proposal that led to this plan.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='fulfillsOrder'>fulfillsOrder</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='StatementOfOccurrence.html'>
+                      <code>StatementOfOccurrence</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Identifies an order that will be partly or wholly filled by the performance of the planned act.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='indication'>
+                        <a href='Action.html#indication'>indication</a>
+                      </a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='Indication.html'>
+                      <code>Indication</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Reason or justification for the action. </div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='patientPreference'>
+                        <a href='Action.html#patientPreference'>patientPreference</a>
+                      </a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Choices made by patients about options for care or treatment (including scheduling, care experience, and meeting of personal health goals) and the sharing and disclosure of their health information.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='plannedAtTime'>plannedAtTime</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#TimePoint'>
+                      <code>TimePoint</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>The time at which the plan was created.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='plannedBy'>plannedBy</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='Person.html'>
+                      <code>Person</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>The person who is the primary planner of this action, e.g., the person who scheduled the appointment.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='providerPreference'>
+                        <a href='Action.html#providerPreference'>providerPreference</a>
+                      </a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Choices made by care providers about options for care or treatment (including scheduling, care experience, and meeting of personal health goals).</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='statusHistory'>
+                        <a href='Action.html#statusHistory'>statusHistory</a>
+                      </a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='ActionStatus.html'>
+                      <code>ActionStatus</code>
+                    </a>
+                    <code>[0..*]</code>
+                    <blockquote>
+                      <div class='block'>Past statuses of this action. For example, an order may evolve from draft to placed to in progress to completed or canceled.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div></table>
+    </div><!-- ========= END OF CLASS DATA ========= -->
+  </body>
+</html>

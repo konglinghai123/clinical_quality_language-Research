@@ -1,0 +1,208 @@
+<html>
+  <head>
+    <link rel='stylesheet' type='text/css' href='../stylesheet.css' title='Style' />
+  </head>
+  <body>
+<!-- ========= START OF TOP NAVBAR ======= -->
+    <div class='topNav'>
+      <a name='navbar_top'>
+<!--   -->
+</a>
+      <ul class='navList' title='Navigation'>
+        <li>
+          <a href='../overview-summary.html'>Overview</a>
+        </li>
+        <li class='navBarCell1Rev'>Class</li>
+        <li>
+          <a href='../index-files.html'>Index</a>
+        </li>
+      </ul>
+      <div class='aboutLanguage'>QIDAM</div>
+    </div>
+    <div class='subNav'>
+      <ul class='navList'>
+        <li>
+          <a target='_top' href='../index.html?pages/Condition.html'>FRAMES</a>&nbsp;&nbsp;
+          <a target='_top' href='Condition.html'>NO FRAMES</a>
+        </li>
+      </ul>
+      <div><!--   --></div>
+    </div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+    <div class='header'>
+      <div class='subTitle'>observable</div>
+      <h2 title='Class Condition' class='title'>Class Condition</h2>
+    </div>
+    <div class='contentContainer'>
+      <ul class='inheritance'>
+        <li>Parent class: 
+          <a href='Observable.html'>Observable</a>
+        </li>
+      </ul>
+      <div class='description'>
+        <ul class='blockList'>
+          <li class='blockList'>Used to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including recording a Diagnosis during an Encounter, or populating a problem List or a Summary Statement, such as a Discharge Summary.</li>
+        </ul>
+      </div>
+      <div class='summary'>
+        <ul class='blockList'>
+          <li class='blockList'>
+            <ul class='blockList'>
+              <li class='blockList'>
+<!-- =========== FIELD SUMMARY =========== -->
+                <a name='field_summary'><!--   --></a>
+                <h3>Field Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Field</th>
+<th class="colLast" scope="col">Type and Description</th>
+</tr>
+
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='ageAtOnset '>ageAtOnset </a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Quantity'>
+                      <code>Quantity</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Patient's age when the problem began.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='bodySite'>bodySite</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='BodySite.html'>
+                      <code>BodySite</code>
+                    </a>
+                    <code>[0..*]</code>
+                    <blockquote>
+                      <div class='block'>Indicates the location of the symptom on the patient's body.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='category'>category</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>A category assigned to the condition, e.g. finding, diagnosis, concern, symptom.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='certainty'>certainty</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Degree of confidence that this condition is correct.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='conditionQualifier'>conditionQualifier</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='Qualifier.html'>
+                      <code>Qualifier</code>
+                    </a>
+                    <code>[0..*]</code>
+                    <blockquote>
+                      <div class='block'>Qualifier that allows specifying more details or restrictions. e.g., severity, triggering factors, stage.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='conditionStatus'>conditionStatus</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>State of the condition at the time of the observation, e.g., active, inactive.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='contributionToDeath'>contributionToDeath</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Whether the problem was the cause or contributor to the patient's death.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='effectiveTime'>effectiveTime</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#TimePeriod'>
+                      <code>TimePeriod</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Time period during which the condition is effective, i.e., from onset to when it abated.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='name'>name</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Identification of the condition, problem or diagnosis. e.g., diabetes mellitus type II, headache.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div></table>
+    </div><!-- ========= END OF CLASS DATA ========= -->
+  </body>
+</html>

@@ -1,0 +1,202 @@
+<html>
+  <head>
+    <link rel='stylesheet' type='text/css' href='../stylesheet.css' title='Style' />
+  </head>
+  <body>
+<!-- ========= START OF TOP NAVBAR ======= -->
+    <div class='topNav'>
+      <a name='navbar_top'>
+<!--   -->
+</a>
+      <ul class='navList' title='Navigation'>
+        <li>
+          <a href='../overview-summary.html'>Overview</a>
+        </li>
+        <li class='navBarCell1Rev'>Class</li>
+        <li>
+          <a href='../index-files.html'>Index</a>
+        </li>
+      </ul>
+      <div class='aboutLanguage'>QIDAM</div>
+    </div>
+    <div class='subNav'>
+      <ul class='navList'>
+        <li>
+          <a target='_top' href='../index.html?pages/Location.html'>FRAMES</a>&nbsp;&nbsp;
+          <a target='_top' href='Location.html'>NO FRAMES</a>&nbsp;&nbsp;<a href="Location-flat.html">[Flat view]</a>
+        </li>
+      </ul>
+      <div><!--   --></div>
+    </div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+    <div class='header'>
+      <div class='subTitle'>common/entity</div>
+      <h2 title='Class Location' class='title'>Class Location</h2>
+    </div>
+    <div class='contentContainer'>
+      <ul class='inheritance'>
+        <li>Parent class: 
+          <a href='Entity.html'>Entity</a>
+        </li>
+      </ul>
+      <div class='description'>
+        <ul class='blockList'>
+          <li class='blockList'>Details about a physical place where services are provided and resources and participants may be stored, found, contained or accommodated.
+
+A location includes both incidental locations (a place used for healthcare without prior designation or authorization) and dedicated, formally appointed locations. Locations may be private, public, mobile or fixed and scale from small freezers to full hospital buildings or parking garages.
+
+Examples of locations are:
+<ul>
+ <li>Building, ward, corridor or room</li>
+ <li>Freezer, incubator</li>
+ <li>Vehicle or lift</li>
+ <li>Home, shed, or garage</li>
+ <li>Road, parking place, or park</li>
+</ul>
+            <ul class='blockList'>
+              <li class='blockList'>
+                <h3>Reference Summary</h3>This resource is referred to by the following:
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+   summary="Reference Summary table, listing classes and properties that reference this resource">
+  <caption><span>References</span><span class="tabEnd">&nbsp;</span></caption>
+  <tr>
+  <th class="colFirst" scope="col">Class or Interface</th>
+  <th class="colLast" scope="col">Property</th>
+  </tr>
+  
+                <tr class='altColor'>
+                  <td>
+                    <a href='Encounter.html'> Encounter</a>
+                  </td>
+                  <td>
+                    <a href='Encounter.html#location'> location</a>
+                  </td>
+                </tr></table>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class='summary'>
+        <ul class='blockList'>
+          <li class='blockList'>
+            <ul class='blockList'>
+              <li class='blockList'>
+<!-- =========== FIELD SUMMARY =========== -->
+                <a name='field_summary'><!--   --></a>
+                <h3>Field Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Field</th>
+<th class="colLast" scope="col">Type and Description</th>
+</tr>
+
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='address'>address</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <code>Address</code>
+                    <blockquote>
+                      <div class='block'>Geographic address for the location.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='function'>function</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Type of function performed at the location.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='name'>name</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Text'>
+                      <code>Text</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Name for the location. Does not need to be unique.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='partOf'>partOf</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='Location.html'>
+                      <code>Location</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Another location of which this location is physically a part.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='telecom'>telecom</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <code>TelecomAddress</code>
+                    <code>[0..*]</code>
+                    <blockquote>
+                      <div class='block'>Contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses, and web sites.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+</table><P/>Fields inherited from
+                <a href='Entity.html'>Entity</a>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Field</th>
+<th class="colLast" scope="col">Type and Description</th>
+</tr>
+
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='characteristic'>characteristic</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='EntityCharacteristic.html'>
+                      <code>EntityCharacteristic</code>
+                    </a>
+                    <code>[0..*]</code>
+                    <blockquote>
+                      <div class='block'>The characteristics of this entity.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div></table>
+    </div><!-- ========= END OF CLASS DATA ========= -->
+  </body>
+</html>

@@ -1,0 +1,238 @@
+<html>
+  <head>
+    <link rel='stylesheet' type='text/css' href='../stylesheet.css' title='Style' />
+  </head>
+  <body>
+<!-- ========= START OF TOP NAVBAR ======= -->
+    <div class='topNav'>
+      <a name='navbar_top'>
+<!--   -->
+</a>
+      <ul class='navList' title='Navigation'>
+        <li>
+          <a href='../overview-summary.html'>Overview</a>
+        </li>
+        <li class='navBarCell1Rev'>Class</li>
+        <li>
+          <a href='../index-files.html'>Index</a>
+        </li>
+      </ul>
+      <div class='aboutLanguage'>QIDAM</div>
+    </div>
+    <div class='subNav'>
+      <ul class='navList'>
+        <li>
+          <a target='_top' href='../index.html?pages/ObservationResult.html'>FRAMES</a>&nbsp;&nbsp;
+          <a target='_top' href='ObservationResult.html'>NO FRAMES</a>
+        </li>
+      </ul>
+      <div><!--   --></div>
+    </div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+    <div class='header'>
+      <div class='subTitle'>observable</div>
+      <h2 title='Class ObservationResult' class='title'>Class ObservationResult</h2>
+    </div>
+    <div class='contentContainer'>
+      <ul class='inheritance'>
+        <li>Parent class: 
+          <a href='Observable.html'>Observable</a>
+        </li>
+      </ul>
+      <div class='description'>
+        <ul class='blockList'>
+          <li class='blockList'>
+            <dl>
+              <dt>Direct Known Subclasses:</dt>
+              <dd>
+                <a href='MicrobiologySensitivityResult.html'>MicrobiologySensitivityResult</a>, 
+                <a href='ResultGroup.html'>ResultGroup</a>, 
+                <a href='SimpleObservationResult.html'>SimpleObservationResult</a>
+              </dd>
+            </dl>
+            <pre>public abstract class <span class="strong">ObservationResult</span>
+extends <a href="Observable.html">Observable</a></pre>Assertions and measurements made about a patient.
+
+ObservationResults are a central element in healthcare used to support diagnosis, monitor progress, determine baselines and patterns and even capture demographic characteristics. Fundamentally, observations are name/value pair assertions.
+          </li>
+        </ul>
+      </div>
+      <div class='summary'>
+        <ul class='blockList'>
+          <li class='blockList'>
+            <ul class='blockList'>
+              <li class='blockList'>
+<!-- =========== FIELD SUMMARY =========== -->
+                <a name='field_summary'><!--   --></a>
+                <h3>Field Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Field</th>
+<th class="colLast" scope="col">Type and Description</th>
+</tr>
+
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='bodySite'>bodySite</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='BodySite.html'>
+                      <code>BodySite</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Indicates where on the patient's body the observation was made.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='interpretation'>interpretation</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Assessment made based on the result of the observation.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='method'>method</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Technique or mechanism used to perform the observation.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='name'>name</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Identifies what type of observation was performed, e.g., body temperature.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='order'>order</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='StatementOfOccurrence.html'>
+                      <code>StatementOfOccurrence</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>An order placed by a provider that led to this observation result.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='relatedObservation'>relatedObservation</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='RelatedObservation.html'>
+                      <code>RelatedObservation</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Observations related to this observation in some way, e.g., used to derive this observation, previous versions of this observation.
+
+Related observations do not include components. Those are modeled in ResultGroup. </div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='reliability'>reliability</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Estimate of the degree to which quality issues have impacted the value reported. e.g., result is ok, measurement still ongoing, results are questionable. Usually, unreliable results are not recorded, but that is not always possible. In such cases, this attribute makes the receiver aware of the quality of the result.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='specimen'>specimen</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='Specimen.html'>
+                      <code>Specimen</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Specimen that was used when this observation was made.
+
+Observations are not made on specimens themselves; they are made on a patients, but usually by the means of a specimen. Note that although specimens are often involved, they are not always tracked and reported explicitly.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='status'>status</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Status of the result value. e.g., preliminary, final.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'>
+                    <strong>
+                      <a name='validationMethod'>validationMethod</a>
+                    </strong>
+                  </td>
+                  <td class='colLast'>
+                    <a href='../overview-summary.html#Code'>
+                      <code>Code</code>
+                    </a>
+                    <blockquote>
+                      <div class='block'>Method by which the observation result was validated, e.g., human review, sliding average.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div></table>
+    </div><!-- ========= END OF CLASS DATA ========= -->
+  </body>
+</html>
