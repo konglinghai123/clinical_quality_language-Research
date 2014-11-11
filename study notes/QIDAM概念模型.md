@@ -1,4 +1,8 @@
 # HL7 Domain Analysis Model: Health Quality Improvement, Release 1 September 2014 US Realm Informative Specification文档        9/16/14
+概念模型
+-------------------------------------------------------------------
+目录
+
 
 ##  Introduction简介
 目前在美国，电子化的医疗质量测度eCQM和临床决策支持CDS是采用不同的数据模型来表达的。eCQM用的是QDM(Quality Data Model质量数据模型)，CDS是使用vMR(Virtual Medical Record虚拟病历)。而二者之间又存在紧密的关联，eCQM度量医疗服务的质量，CDS为改进以来质量通过干预措施，二者存在共通的需求，即如何标识某种eCQM或CDS知识/规则所应用的患者。
