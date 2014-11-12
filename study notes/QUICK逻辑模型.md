@@ -1,5 +1,4 @@
-HL7 Logical Model: Quality Improvement and Clinical Knowledge (QUICK), Release 1 - US Realm September 2014
-文件名:QUICK-Overview
+HL7 Logical Model: Quality Improvement and Clinical Knowledge (QUICK), Release 1 - US Realm September 2014(版本：QUICK-Submission-20140801/QUICK-Overview.docx)
 可以将其视为背景介绍性文件,可以帮助我们进一步了解QUCIK模型.
 ---------------------------------------
 目录
@@ -21,7 +20,7 @@ HL7 Logical Model: Quality Improvement and Clinical Knowledge (QUICK), Release 1
     * 4.7 与FHIR映射的实例
 * 5 供知识编辑人员使用的参考资料
     * 5.1 HTML页面
-    * 5.2 QUICK的EA模型结构
+    * 5.2 QUICK的EA模型
         * 5.2.1 Core包
         * 5.2.2 Common包
         * 5.2.3 Action包
@@ -141,7 +140,7 @@ CQL中涉及到获取QUICK类和属性的数据时，就可以将其转换成FHI
 ,处理引擎获取到的数据是 FHIR bundle,这时候并不是直接处理XML/JSON,而是将FHIR数据转换成QUICK对象供后续的CQL命令处理
 QUICK与FHIR的数据转换是CQL解释器的后台功能.
 鉴于目前的关注点是QUICK本身,并非在于知识的构建和解释,这些操作不做过多说明.如图
-![](quickprocess.jpg)
+![](reference_material/images/quickprocess.jpg)
 ### 4.2 为什么不直接使用FHIR的理由  
 临床的数据模型和持久化层因厂商和系统各异.由此而导致无法互联互通.但纵观这些系统,存在着一些共同拥有的部分,FHIR试图
 将常见的概念和模式构建成资源,以此为基础来解决互操作性的问题.鉴于此,对于医疗质量的改进而言,形成一个与FHIR紧密融合的
@@ -181,7 +180,7 @@ QUICK中用于表达患者数据的核心概念是 临床声明(clinical stateme
 和模式 *modality*,下面的章节对这些进行详细描述. The diagram
 below illustrates the core semantic structure of the model.
 
-![](image3.png)
+![](reference_material/images/image3.png)
 
 ### 4.3.1 Occurrence
 
@@ -209,11 +208,11 @@ QUICK中使用*StatementTopic* 类来表示临床陈述的主题,分为两大类
 
 在QUICK中,*Observable*有多个子类,如下图所示 
 
-![](image4.png)
+![](reference_material/images/image4.png)
 
 QUICK中*Act*也有多个子类,如下图所示
 
-![](media/image5.png)
+![](reference_material/images/media/image5.png)
 
 ### 4.3.3 Modality
 
@@ -224,7 +223,7 @@ Clinical statements都有*modality*. 临床陈述的*modality 模式维度*可�
 5个action modalities 分别是 *Proposal*, *ProposalAgainst*, *Order*, *Plan*,
 and *Performance*.如下图所示
 
-![](image6.png)
+![](reference_material/images/image6.png)
 
 4.4 整合QUICK三个维度的两种方式
 --------------------------------------------------
@@ -265,7 +264,7 @@ determined by introspecting the contents of the
 继承来形成子类-父类,所有相关的属性都处于同一层次.这些是预设好的类,拥有固定的属性和唯一的类名称,唯一的缺点在于预设类的
 数目是combinatorial,涉及到构造三种occurrence类型的topics and modalities.下表展示了主题和模式的组合有那些,实际上并不需要这么多,
 其中一些不可能会发生 
-![](image_table.png)
+![](reference_material/images/image_table.png)
 
 
 最终的 leaf-level 类名可以通过{topic} + {modality} + {occurrence}的方式得到，例如, *ProcedureProposalOccurrence*. 
@@ -273,16 +272,16 @@ determined by introspecting the contents of the
 *MedicationTreatmentOrderOccurrence.* 另外，我们可以他欧冠那个默认值来简化名称，比如，利用
 *ProcedureProposal* 来表示*ProcedureProposalOccurrence*, 鉴于occurrence比non-occurrence 或 unknown
 occurrence更常见. 
-![](media/image7.png)
+![](reference_material/images/media/image7.png)
 
 QUICK模型中采用了多种面向对象语言中所采用的 mixin 的方式来 表示QUICK leaf-level 概念.[^5]
 比如， *ProcedureProposalOccurrence* 概念可以定义成从*StatementOfOccurrence*衍生得到的leaf-level的概念 ，通过继承和混合
  *Proposal* and *Procedure*二者的属性,如下图所示：
-![](image8.png)
+![](reference_material/images/image8.png)
 
 诸如Java and C\# 等编程语言中既不支持多重继承和mixin的，可以通过单一继承和接口轻松实现同样的结果
 
-![](image9.png)
+![](reference_material/images/image9.png)
 
 具体的leaf-level类(预设类)不仅仅使得知识管理更加 直观，在规则引擎中也比组合是结构更加可控。最重要的是，大多数编程语言都支持
 组合式和 leaf-leve的方式.
@@ -291,161 +290,96 @@ QUICK模型中采用了多种面向对象语言中所采用的 mixin 的方式�
 ---------------------------------------
 
  QUICK 模型的目的是要在诸如CQL等临床表达式语言中使用。 这里简要介绍如何在CQL使用QUICK模型。
-要了解更多CQL语言相关信息，请参考Clinical Quality Language Specification,
-R1.
+要了解更多CQL语言相关信息，请参考Clinical Quality Language Specification,R1.
 
-The *retrieve* and *query* constructs within CQL are used for accessing
-clinical information in a knowledge artifact such as a measure or rule.
-The result of a retrieve is always a list of some type of clinical data.
-Queries enable results of retrieves to be further filtered, shaped, and
-extended to enable the expression of arbitrary clinical logic that can
-be used in knowledge artifacts. The type of data to be retrieved are
-specified by the axes of the ClinicalStatement as follows:
+CQL中获取/检索,查询( *retrieve* and *query* )的construct是用于访问知识制品(knowledge artifact)中的医学信息(度量指标或规则) 
+检索结果常常是某种类型的医学数据的列表。查询能够对检索结果进一步过滤，shape和扩展以实现知识制品中任意的医学逻辑的表达。
+能够检索的数据类型是由ClinicalStatement的维度所规定的，如下所示：
 
 [Occurrence of Encounter, Performance]
 
-This example retrieves all *EncounterPerformanceOccurrence* statements
-for a patient. *Encounter* is the topic, *Performance* is the modality.
-The occurrence axis does not need to be specified when the value is
-*Occurrence*; this is the default value.
+这个例子中指的是检索某个病人所有的*EncounterPerformanceOccurrence*.主题是 *Encounter* ,模式是 *Performance*.
+当值为*Occurrence*时，occurrence维度的默认值是*Occurrence*，无需出现。
 
 [Encounter, Performance]
 
-For observables, modality is not required, since there is only one
-modality for observations. Thus, all Conditions for patients can be
-retrieved by
+对于 observables,只有一种模式modality，因此也不是必须存在的，要检索患者的所有症状/病情 只需要[Condition]
 
-[Condition]
-
-The occurrence axis is required only for the non-occurrence and
-unknown-occurrence cases, for example:
-
+只有是 未出现和不知道是否出现non-occurrence and unknown-occurrence的情况下，才需要occurrence维度，例如,
 [NonOccurrence of Condition]
-
 [UnknownOccurrence of Condition]
 
-A retrieve can be combined with a filter limiting the retrieve by
-matching on a specified value set[^6]:
+检索时也可以附带一个过滤条件，比如说匹配某个值集/字典的[^6]:
 
 [Condition: “Acute Pharyngitis”]
 
-In this example, the value set “Acute Pharyngitis” refers implicitly to
-*Condition.code*, which is the primary coded attribute of the class
-*Condition* designated by the QUICK model (these designations of primary
-code for topics are not yet in the current QUICK model). To support the
-use of filtering on code-valued attributes that may not be the primary
-code attribute, the retrieve expression allows the attribute name to be
-specified:
+上面的例子中，“Acute Pharyngitis/急性咽炎”隐式地指的是*Condition.code*的值, 在QUICK模型中，*Condition.code*是*Condition*类
+主编码属性。(暂时QUICK模型中并没有对主primary code for topics作出正式定义l). 如果要对非主编码属性进行过滤，可以在检索
+表达式中指定相关的属性名称：
 
 [Condition: severity in "Acute Severity"]
 
-Queries allow further filtering such as
+查询的话可以进一步进行过滤，如
 
-[Condition: severity in "Acute Severity"] where effectiveTime overlaps
-MeasurementPeriod
+[Condition: severity in "Acute Severity"] where effectiveTime overlaps MeasurementPeriod
 
-For more examples of query and retrieve statements, including date range
-filtering, see the CQL Specification and the documentation of the leaf
-statements in the QUICK model and specification.
+在CQL标准和QUICK模型的leaf陈述的文档中，可以查看更多查询和检索的实例。
 
-To execute retrieves, the implementing system must map QUICK objects and
-properties to queries against EHR data. As discussed in [*Section
-4.1*](#how-quick-is-used-in-quality-improvement), FHIR can be used as an
-intermediate representation to pass data between the CQL interpreter and
-the EHR data store. If so, the execution engine would translate the CQL
-retrieve statement into a FHIR read, search, or query.
+为了要执行这些检索，系统必须将QUICK对象和属性与EHR数据的查询一一对应，如 [*Section
+4.1*](#how-quick-is-used-in-quality-improvement)所说的那样, FHIR可以作为CQL解释器和EHR数据仓库
+之间传递数据的中间介质 。如果这样的话，执行引擎能够将CQL检索条件转换成FHIR的增删改查操作.
 
-After data is retrieved, CQL has many operations that allow the user to
-further filter and process the objects that are retrieved based on their
-relationships and properties. These operations include timing operators,
-mathematical, logical, text and list operations, and many more. Artifact
-authors use these operators to shape patient populations meeting the
-desired criteria.
+检索得到结果之后, CQL中还有很多操作,能够让我们根据数据之间的关系和性质进一步过滤和处理数据, 其中包括了
+时间操作,算术操作,逻辑,文本,列表操作等. 制品编辑人员Artifact authors可以利用这些操作来筛选满足特定条件的总体
 
-To execute the CQL statements that follow retrieves, clinical data
-received from the data source must be mapped into the QUICK model
-classes and properties. This can be done directly by the implementing
-system, or via a standard FHIR mapping, if FHIR is used as intermediary.
-For example, CQL expressions can include the QUICK property
-*Condition.ageAtOnset*, for example, *Condition.ageAtOnset \< 18 years*.
-If FHIR is used as an intermediate representation (as discussed above),
-condition onset can be returned[^7] either as *Condition.onsetDate* or
-*Condition.onsetAge*. If the former, conversion from date to age is
-required to enable evaluation of the expression. To make this mapping
-easier, the data types in QUICK are taken directly from FHIR.
+得到检索结果之后要执行其他的CQL表达式的话,需要将从数据源获取的医学数据转换成QUICK模型的类和属性.既可以在
+实现系统中直接完成,又可以利用FHIR作为中间介质.比如,CQL表达式中包含了QUICK属性*Condition.ageAtOnset*, 比方说,
+*Condition.ageAtOnset \< 18 years*.如果使用FHIR的话,病发日期[^7] 的值要么是*Condition.onsetDate* 字段,要么是
+*Condition.onsetAge*. 如果是Date的话,需要把日期转换成年龄.为了简化映射过程,QUICK中直接采用了FHIR的数据类型
 
-4.6 Extensions and Profiles
+4.6 扩展和规范
 ---------------------------
 
-There is a requirement that QUICK can be extended by its implementers,
-to support needs that either are generally useful but not met by QUICK
-at that time, or needs that might be proprietary. The mechanisms for
-extension are still being developed and will be included in a future
-version of the specification. An important design objective is that the
-extension mechanism should not add complexity in the expressions using
-the extended classes and attributes. We expect to build upon FHIR’s
-extension approach so that implementation of the physical layer (i.e.,
-patient data transport) is easier and is compatible with how CQL
-transforms FHIR resources into QUICK classes.
+开发人员可以对QUICK进行扩展来满足他们的需求. 扩展机制仍处于研发阶段,预计下一个版本中会纳入进来.
+扩展机制最重要的设计目的在于不宜增加表达的复杂度.我们期望利用FHIR的扩展机制,这样数据传输层会相对简单一些,而且与CQL
+如何将FHIR资源转换成QUICK类之间兼容.
 
-There also is a need to create profiles within QUICK. These profiles
-will allow specification of constraints on various elements in QUICK for
-specific purposes - e.g., the constraints on attributes for Encounter
-when describing a referral request. Currently, the QUICK model includes
-the profile identifiers. However, mechanisms for specifying profiles are
-not developed. Here too, we expect to leverage work done by FHIR.
+同样,QUICK中也需要构建一些profile规范.这些规范中会对QUICK模型的元素进行一些额外的约束以满足特定的目的,比如,
+表示转诊申请时对 Encounter的属性进行约束,目前,QUICK模型中包含了profile identifiers.但如何构建profile的机制尚不存在.
+ 这部分工作也希望能够借鉴FHIR的一些经验.
 
-4.7 Example Mapping to FHIR
+4.7 与FHIR之间映射的例子
 ---------------------------
 
-In most cases, the corresponding classes in QUICK and FHIR have the same
-name, type, and cardinality for their attributes. As an example, the
-following table defines the mapping between FHIR *Condition* resource
-and the QUICK *ConditionOccurrence* class.
+大多数情况下,QUICK和FHIR中类的名称,数据类型,属性的基数都是一样的.下表展示了FHIR *Condition* 资源与QUICK 
+*ConditionOccurrence* 类的对应关系.
 
-![](media/image10.png)
+![](reference_material/images/image10.png)
 
-Some concepts in QUICK are inherited from higher-level concepts so the
-names are more generic in nature; e.g., *statementDateTime*, inherited
-from *ClinicalStatement*, which maps to the *Condition.dateAsserted*
-field. There are also some subtle differences in QUICK to make for
-simpler expressions and implementations, for example, *Condition.onset*
-property takes on a union of date and Age types, but this is simplified
-in QUICK with explicit *effectiveTime* and *ageAtOnset* fields of type
-Period and Range, respectively. Likewise, the *Condition.abatement*
-field is represented by the end date in the QUICK *effectiveDate*
-period. FHIR resources occasionally have fields that are not clearly
-defined enough to map, such as the *Encounter.period* and
-*Encounter.hospitalization.period* fields, which at first glance may be
-redundant. In such cases, the QUICK and FHIR teams work together to
-align the two together. A number of issues have been submitted to the
-HL7 FHIR issue tracking system to be resolved.
+QUICK中一些概念是从高层次的概念中继承下来的,导致概念的名称会更加通用,诸如 *statementDateTime*继承自*ClinicalStatement*, 
+对应到 *Condition.dateAsserted*字段. 这里面又有一些小差异,比方 *Condition.onset*字段的数据类型可以是date 和 Age,
+但在QUICK中对应两个字段, *effectiveTime* 的数据类型是Period,而 *ageAtOnset* 是Range.同样的, *Condition.abatement*
+字段在QUICK中是*effectiveDate*用end date来表示的.FHIR资源中的一些字段定义的不够清晰,不知道该怎么对应,比如
+*Encounter.period* 和*Encounter.hospitalization.period* 字段,, 我们可以将其看成是冗余的. 一些不一致的地方
+ FHIR和QUICK团队正在解决当中.
 
-5 References for Knowledge Authors
+5 供知识编辑人员使用的参考资料
 ==================================
 
-5.1 HTML Pages
+5.1 HTML格式
 --------------
 
-QUICK provides with technical documentation in auto-generated
-(JavaDoc-style) HTML format pages. These pages list all attributes
-inherited by a leaf-level concept and their cardinalities, types, and
-definitions. The leaf-level classes are accessed by clicking on the
-Statement package link on the left of the page. This information can be
-viewed grouped by the parent concept that contributed them or as a
-simple, alphabetically ordered list of all attributes with parent
-attribution referenced as hyperlinks.
+QUICK中提供了自动生成的HTML格式的技术文档,其中罗列了leaf-level概念的所有属性,基数,数据类型和定义. 在页面左侧的Statement
+包中点击即可查看这些leaf-level类. 
 
-![](media/image11.jpg)
+![](reference_material/images/image11.jpg)
 
 #### 
 
-5.2 The QUICK Enterprise Architect Model Structure (QUICK.eap)
+5.2 QUICK的EA模型结构(UML模型)(QUICK.eap)
 --------------------------------------------------------------
 
-The QUICK model is specified in the form of a Unified Modeling Language
-class diagram. For readers not familiar with this modeling approach,
-these references provide an introduction:
+UML的QUICK模型:
 
 1.  [*http://www.ibm.com/developerworks/rational/library/content/RationalEdge/sep04/bell/*](http://www.ibm.com/developerworks/rational/library/content/RationalEdge/sep04/bell/)
 
@@ -454,81 +388,65 @@ these references provide an introduction:
 The second reference, by the developers of Enterprise Architect, uses
 the exact notation for diagrams as QUICK.
 
-QUICK classes are organized into six top-level packages: ***action***,
-***common***, ***core***, ***datatypes***, ***observable,*** and
-***statements***, as illustrated below. These packages are described in
-the subsections of this section.
+QUICK的类组织成6大顶层包:  ***action***,***common***, ***core***, ***datatypes***, ***observable,*** 和
+***statements***. 
 
-![](media/image12.png)
+![](reference_material/images/image12.png)
 
 ### 5.2.1 Core Package
 
-The ***core*** package contains the core classes of the logical
-model—namely, the three clinical statements as well as the base
-*ClinicalStatement* class, the *StatementModality* abstract class, and
-the *StatementTopic* abstract class:
+ ***core*** 包中涵盖了逻辑模型的核心类-顾名思义,三大clinical statement和基类*ClinicalStatement*,*StatementModality*
+ *StatementTopic* 类.
 
-![](media/image13.png)
+![](reference_material/images/image13.png)
 
-<span id="h.rat17ro5xhpk" class="anchor"></span>
 
 ### 5.2.2 Common Package
 
-The ***common*** package contains classes shared across several other
-packages (e.g., *BodySite* may be referenced by acts and observables).
-Of these, entities such as *Patient*, *Practitioner*, *Medication*, and
-*Facility* represent an important subcategory of common classes. This
-subcategory of common classes is located in the entity package.
+***common***包涵盖了其他包的共用类 (e.g., act和observable可能都引用了*BodySite* ).
+比如*Patient*, *Practitioner*, *Medication*, *Facility* 等实体类. .
 
-![](media/image14.png)
+![](reference_material/images/image14.png)
 
-<span id="h.ftx692t0zhby" class="anchor"></span>
 
 ### 5.2.3 Action Package
 
-The ***action*** package contains concepts relevant to clinical actions
-such as the acts and action modalities (in the ***act*** and
-***modality*** subpackages) and ***common*** concepts referenced by
+***action***包涵盖了与临床行为/动作相关的类,比如 acts and action modalities (in the ***act*** and
+***modality*** subpackages) 和 ***common*** concepts referenced by
 action classes (e.g., *Dosage*, *Dispense*, and *VaccinationProtocol*):
 
-![](media/image15.png)
+![](reference_material/images/image15.png)
 
-![](media/image16.png)
+![](reference_material/images/image16.png)
 
-![](media/image17.png)
+![](reference_material/images/image17.png)
 
-![](media/image18.png)
+![](reference_material/images/image18.png)
 
-<span id="h.c8jxvyqll4zn" class="anchor"></span>
 
 ### 5.2.4 Datatypes Package
 
-The ***datatypes*** package contains the full set of FHIR datatypes
-referenced in this logical model. Detailed documentation for the
-datatypes can be found on the FHIR web-site:
-http://hl7.org/implement/standards/fhir/datatypes.html
+***datatypes***包涵盖了逻辑模型中使用到的所有FHIR数据类型.详细信息请查阅[FHIR官方文档](http://hl7.org/implement/standards/fhir/datatypes.html)
 
-![](media/image19.png)
+![](reference_material/images/image19.png)
 
-<span id="h.d2seojnppxo2" class="anchor"></span>
 
 ### 5.2.5 Observable Package
 
-The ***observable*** package contains statement topics that represent
-observable concepts such as *Condition* and *ObservationResult.* It also
-contains the observation modality concept.
+ ***observable***包涵盖了表示可观察概念的陈述.诸如 *Condition* and *ObservationResult.*
+ 同时也包含了 observation modality concept.
 
-![](media/image20.png)
+![](reference_material/images/image20.png)
 
 ### 5.2.6 Statement Package
 
-The ***statement*** package contains an initial set of the model’s
+***statement***包含了基本的 package contains an initial set of the model’s
 leaf-level components. Currently, this package contains the set of
 resources identified as high-priority for our initial pilot projects and
 does not represent the comprehensive set of leaf-level concepts that can
 be represented by QUICK.
 
-![](media/image21.png)
+![](reference_material/images/image21.png)
 
 [^1]: By deterministic, we mean whether a consistent mapping exists
     between a class or an attribute in both the QUICK and FHIR models.
@@ -538,7 +456,7 @@ be represented by QUICK.
     provides the fundamental building blocks for defining or deriving
     more advanced forms of knowledge, such as rules and inferred
     knowledge. An interesting distinction between a fact model and a
-    data model is made [*here*](numbering.xml).
+    data model is made [*here*](www.brcommunity.com/b008a.php).
 
 [^3]: Should QUICK expand the scope of the model beyond the patient? Is
     such an expansion necessary for the representation of clinical
@@ -551,7 +469,7 @@ be represented by QUICK.
     to a rules engine.
 
 [^5]: For more information about mixins, please read this
-    [*article*](styles.xml).
+    [*article*](http://en.wikipedia.org/wiki/Mixin).
 
 [^6]: See the CQL specification for details on how to create value set
     references.

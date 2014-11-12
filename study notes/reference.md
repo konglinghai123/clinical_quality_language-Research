@@ -1,7 +1,7 @@
 Reference materials参考资料
 
 
-1.[Functional requirements defined in “HL7 Domain Analysis Model: Harmonization of Health Quality Artifact Reasoning and Expression Logic”](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=359)         
+1.[Functional requirements defined in “HL7 Domain Analysis Model: Harmonization of Health Quality Artifact Reasoning and Expression Logic”](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=359) [PDF文件](reference_material/HL7_DAM_HARMON_HQAREL_INFORM_R1_2014MAY.pdf)        
 2.[HL7 Domain Analysis Model: Harmonization of Health Quality Artifact Reasoning and Expression Logic](HL7_DAM_HARMON_HQAREL_INFORM_R1_2014MAY.pdf)       
 3.[CQL_Technical_Introduction_20140604](CQL_Technical_Introduction_20140604.pptx)                 
 4.[HL7 Domain Analysis Model: Health Quality Improvement, Release 1 September 2014 US Realm Informative Specification](HL7_DAM_HQUAL_R1_I1_2014Aug-Pub_20141008.docx)
