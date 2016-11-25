@@ -1,25 +1,26 @@
 package org.cqframework.cql.cql2elm.model;
 
 import org.antlr.v4.runtime.misc.NotNull;
+import org.cqframework.cql.elm.tracking.TupleType;
 import org.hl7.elm_modelinfo.r1.ClassInfo;
 
 public class ClassDetail {
     public ClassInfo getClassInfo() {
-        return _classInfo;
+        return classInfo;
     }
 
     public void setClassInfo(@NotNull ClassInfo classInfo) {
-        _classInfo = classInfo;
+        this.classInfo = classInfo;
     }
 
-    public Class getModelClass() {
-        return _modelClass;
+    public TupleType getModelClass() {
+        return modelClass;
     }
 
-    public void setModelClass(@NotNull Class modelClass) {
-        _modelClass = modelClass;
+    public void setModelClass(@NotNull TupleType modelClass) {
+        this.modelClass = modelClass;
     }
 
-    private ClassInfo _classInfo;
-    private Class _modelClass;
+    private ClassInfo classInfo;
+    private TupleType modelClass;
 }

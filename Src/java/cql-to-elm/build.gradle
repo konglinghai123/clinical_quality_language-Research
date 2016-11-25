@@ -1,42 +1,27 @@
-apply plugin: 'java'
-apply plugin: 'jacoco'
-apply plugin: 'findbugs'
-apply plugin: 'pmd'
-apply plugin: 'idea'
-apply plugin:'application'
+apply plugin: 'application'
 
-group = 'org.cqframework'
-version = '0.1'
-sourceCompatibility = '1.7'
-
-mainClassName = 'org.cqframework.cql.cql2elm.Cql2ElmVisitor'
-run.args = ["${projectDir}/../../../Examples/CMS146v2_CQM.cql"]
-
-repositories {
-    mavenCentral()
-}
+mainClassName = 'org.cqframework.cql.cql2elm.CqlTranslator'
+run.args = ["--input", "${projectDir}/../../../Examples/CMS146v2_CQM.cql"]
 
 dependencies {
     compile project(':cql')
     compile project(':elm')
-    compile project(':quick')
-    testCompile group: 'org.testng', name: 'testng', version: '6.8.8'
-    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
+    compile group: 'org.antlr', name: 'antlr4', version: '4.5'
+    compile group: 'com.fasterxml.jackson.core', name:'jackson-core', version:'2.4.1'
+    compile group: 'com.fasterxml.jackson.core', name:'jackson-databind', version:'2.4.1'
+    compile group: 'net.sf.jopt-simple', name: 'jopt-simple', version: '4.7'
+    runtime project(':quick')
+    runtime project(':qdm')
 }
 
-findbugs {
-    toolVersion = "3.0.0"
+task generateTestData (dependsOn: 'testClasses', type: JavaExec) {
+    main = 'org.cqframework.cql.cql2elm.utilities.CoffeeScriptTestDataGenerator'
+    classpath = sourceSets.test.runtimeClasspath
+    args = ["-r", "-i", "${projectDir}/../../coffeescript/cql-execution/test/elm"]
 }
 
-tasks.withType(FindBugs) {
-    reports {
-        xml.enabled = false
-        html.enabled = true
-    }
-}
-
-check.dependsOn(jacocoTestReport)
-
-test {
-    useTestNG()
+task watchTestData (dependsOn: 'testClasses', type: JavaExec) {
+    main = 'org.cqframework.cql.cql2elm.utilities.CoffeeScriptTestDataGenerator'
+    classpath = sourceSets.test.runtimeClasspath
+    args = ["-r", "-w", "-i", "${projectDir}/../../coffeescript/cql-execution/test/elm"]
 }

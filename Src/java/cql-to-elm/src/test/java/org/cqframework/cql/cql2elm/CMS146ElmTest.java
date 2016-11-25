@@ -12,21 +12,20 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import static org.cqframework.cql.cql2elm.TestUtils.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.testng.Assert.*;
 
 public class CMS146ElmTest {
 
-    private Cql2ElmVisitor visitor;
+    private CqlTranslator translator;
     private Library library;
     private ObjectFactory of;
 
     @BeforeTest
     public void setup() throws IOException {
-        visitor = visitFile("CMS146v2_Test_CQM.cql", true);
-        library = visitor.getLibrary();
+        translator = CqlTranslator.fromStream(CMS146ElmTest.class.getResourceAsStream("CMS146v2_Test_CQM.cql"), new LibraryManager());
+        library = translator.toELM();
         of = new ObjectFactory();
     }
 
@@ -38,32 +37,38 @@ public class CMS146ElmTest {
     @Test
     public void testUsingDataModel() {
         List<UsingDef> models = library.getUsings().getDef();
-        assertThat(models, hasSize(1));
-        assertThat(models.get(0).getUri(), is("http://org.hl7.fhir"));
+        assertThat(models, hasSize(2));
+        assertThat(models.get(1).getUri(), is("http://hl7.org/fhir"));
     }
 
     @Test
     public void testClinicalRequests() {
-        Collection<Retrieve> actualCR = visitor.getRetrieves();
+        Collection<Retrieve> actualCR = translator.toRetrieves();
 
         Collection<Retrieve> expectedCR = Arrays.asList(
                 of.createRetrieve()
-                        .withDataType(quickDataType("ConditionOccurrence"))
+                        .withDataType(quickDataType("Condition"))
+                        .withTemplateId("condition-qicore-qicore-condition")
                         .withCodeProperty("code")
                         .withCodes(of.createValueSetRef().withName("Acute Pharyngitis")),
                 of.createRetrieve()
-                        .withDataType(quickDataType("ConditionOccurrence"))
+                        .withDataType(quickDataType("Condition"))
+                        .withTemplateId("condition-qicore-qicore-condition")
                         .withCodeProperty("code")
                         .withCodes(of.createValueSetRef().withName("Acute Tonsillitis")),
                 of.createRetrieve()
-                        .withDataType(quickDataType("MedicationTreatmentOrderOccurrence"))
+                        .withDataType(quickDataType("MedicationPrescription"))
+                        .withTemplateId("medicationprescription-qicore-qicore-medicationprescription")
+                        .withCodeProperty("medication.code")
                         .withCodes(of.createValueSetRef().withName("Antibiotic Medications")),
                 of.createRetrieve()
-                        .withDataType(quickDataType("EncounterPerformanceOccurrence"))
-                        .withCodeProperty("class")
+                        .withDataType(quickDataType("Encounter"))
+                        .withTemplateId("encounter-qicore-qicore-encounter")
+                        .withCodeProperty("type")
                         .withCodes(of.createValueSetRef().withName("Ambulatory/ED Visit")),
                 of.createRetrieve()
-                        .withDataType(quickDataType("SimpleObservationOccurrence"))
+                        .withDataType(quickDataType("Observation"))
+                        .withTemplateId("observation-qicore-qicore-observation")
                         .withCodeProperty("code")
                         .withCodes(of.createValueSetRef().withName("Group A Streptococcus Test"))
         );
@@ -105,7 +110,7 @@ public class CMS146ElmTest {
             actualVars.add(def.getName());
         }
 
-        Collection<String> expectedVars = Arrays.asList("InDemographic", "Pharyngitis", "Antibiotics", "TargetEncounters",
+        Collection<String> expectedVars = Arrays.asList("Patient", "InDemographic", "Pharyngitis", "Antibiotics", "TargetEncounters",
                 "TargetDiagnoses", "HasPriorAntibiotics", "HasTargetEncounter", "InInitialPopulation", "InDenominator",
                 "InDenominatorExclusions", "InNumerator");
 
@@ -115,8 +120,8 @@ public class CMS146ElmTest {
     // TODO: Disabled the test for now, needs to be updated to use annotations, will update after all syntax changes.
     @Test(enabled=false)
     public void testTrackBacks() {
-        for (Retrieve dc : visitor.getRetrieves()) {
-            int expectedNumbers[] = {0, 0, 0, 0};
+        for (Retrieve dc : translator.toRetrieves()) {
+            int expectedNumbers[] = new int[4];
             switch (((ValueSetRef) dc.getCodes()).getName()) {
                 case "Acute Pharyngitis":
                     expectedNumbers = new int[] {19, 6, 19, 37};
@@ -149,7 +154,7 @@ public class CMS146ElmTest {
         }
 
         for (ValueSetDef vs : library.getValueSets().getDef()) {
-            int expectedNumbers[] = {0, 0, 0, 0};
+            int expectedNumbers[] = new int[4];
             switch (vs.getId()) {
                 case "2.16.840.1.113883.3.464.1003.102.12.1011":
                     expectedNumbers = new int[] {7, 1, 7, 83};
@@ -181,7 +186,7 @@ public class CMS146ElmTest {
         }
 
         for (ExpressionDef ls : library.getStatements().getDef()) {
-            int expectedNumbers[] = {0, 0, 0, 0};
+            int expectedNumbers[] = new int[4];
             switch (ls.getName()) {
                 case "InDemographic":
                     expectedNumbers = new int[] {15, 1, 16, 85};
@@ -232,6 +237,6 @@ public class CMS146ElmTest {
     }
 
     private QName quickDataType(String dataTypeName) {
-        return new QName("http://org.hl7.fhir", dataTypeName, "quick");
+        return new QName("http://hl7.org/fhir", dataTypeName, "quick");
     }
 }

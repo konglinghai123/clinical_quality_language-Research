@@ -12,6 +12,8 @@ import org.hl7.elm.r1.Library;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestUtils {
 
@@ -25,36 +27,45 @@ public class TestUtils {
     }
 
     public static Object visitData(String cqlData) {
-        TokenStream tokens = parseANTLRInputStream(new ANTLRInputStream(cqlData));
-        ParseTree tree = parseTokenStream(tokens);
-        return createElmTranslatorVisitor(tokens, tree).visit(tree);
+        CqlTranslator translator = CqlTranslator.fromText(cqlData, new LibraryManager());
+        ensureValid(translator);
+        return translator.toObject();
     }
 
     public static Library visitLibrary(String cqlLibrary) {
-        TokenStream tokens = parseANTLRInputStream(new ANTLRInputStream(cqlLibrary));
-        ParseTree tree = parseTokenStream(tokens);
-        Cql2ElmVisitor visitor = createElmTranslatorVisitor(tokens, tree);
-        visitor.visit(tree);
-        return visitor.getLibrary();
+        CqlTranslator translator = CqlTranslator.fromText(cqlLibrary, new LibraryManager());
+        ensureValid(translator);
+        return translator.toELM();
     }
 
     public static Object visitData(String cqlData, boolean enableAnnotations, boolean enableDateRangeOptimization) {
-        TokenStream tokens = parseANTLRInputStream(new ANTLRInputStream(cqlData));
-        ParseTree tree = parseTokenStream(tokens);
-        Cql2ElmVisitor visitor = createElmTranslatorVisitor(tokens, tree);
+        List<CqlTranslator.Options> options = new ArrayList<>();
         if (enableAnnotations) {
-            visitor.enableAnnotations();
+            options.add(CqlTranslator.Options.EnableAnnotations);
         }
         if (enableDateRangeOptimization) {
-            visitor.enableDateRangeOptimization();
+            options.add(CqlTranslator.Options.EnableDateRangeOptimization);
         }
-        return visitor.visit(tree);
+        CqlTranslator translator = CqlTranslator.fromText(cqlData, new LibraryManager(), options.toArray(new CqlTranslator.Options[options.size()]));
+        ensureValid(translator);
+        return translator.toObject();
+    }
+
+    private static void ensureValid(CqlTranslator translator) {
+        StringBuilder builder = new StringBuilder();
+        for (CqlTranslatorException error : translator.getErrors()) {
+            builder.append(String.format("%s%n", error.getMessage()));
+        }
+        if (builder.length() > 0) {
+            throw new IllegalStateException(builder.toString());
+        }
     }
 
     private static Cql2ElmVisitor createElmTranslatorVisitor(TokenStream tokens, ParseTree tree) {
         CqlPreprocessorVisitor preprocessor = new CqlPreprocessorVisitor();
         preprocessor.visit(tree);
-        Cql2ElmVisitor visitor = new Cql2ElmVisitor();
+        LibraryManager libraryManager = new LibraryManager();
+        Cql2ElmVisitor visitor = new Cql2ElmVisitor(libraryManager);
         visitor.setTokenStream(tokens);
         visitor.setLibraryInfo(preprocessor.getLibraryInfo());
         return visitor;

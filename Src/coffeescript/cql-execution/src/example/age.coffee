@@ -4,51 +4,90 @@ module.exports = {
          "id" : "AgeAtMP",
          "version" : "1"
       },
-      "dataModels" : {
-         "modelReference" : [ {
-            "referencedModel" : {
-               "value" : "http://org.hl7.fhir"
-            }
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localIdentifier" : "QUICK",
+            "uri" : "http://hl7.org/fhir"
          } ]
       },
       "parameters" : {
          "def" : [ {
             "name" : "MeasurementPeriod",
+            "accessLevel" : "Public",
             "default" : {
-               "beginOpen" : false,
-               "endOpen" : true,
+               "lowClosed" : true,
+               "highClosed" : false,
                "type" : "Interval",
-               "begin" : {
-                  "name" : "Date",
+               "low" : {
+                  "name" : "DateTime",
                   "type" : "FunctionRef",
                   "operand" : [ {
-                     "valueType" : "{http://www.w3.org/2001/XMLSchema}int",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
                      "value" : "2013",
                      "type" : "Literal"
                   }, {
-                     "valueType" : "{http://www.w3.org/2001/XMLSchema}int",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
                      "value" : "1",
                      "type" : "Literal"
                   }, {
-                     "valueType" : "{http://www.w3.org/2001/XMLSchema}int",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
                      "value" : "1",
+                     "type" : "Literal"
+                  }, {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "0",
+                     "type" : "Literal"
+                  }, {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "0",
+                     "type" : "Literal"
+                  }, {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "0",
+                     "type" : "Literal"
+                  }, {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "0",
                      "type" : "Literal"
                   } ]
                },
-               "end" : {
-                  "name" : "Date",
+               "high" : {
+                  "name" : "DateTime",
                   "type" : "FunctionRef",
                   "operand" : [ {
-                     "valueType" : "{http://www.w3.org/2001/XMLSchema}int",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
                      "value" : "2014",
                      "type" : "Literal"
                   }, {
-                     "valueType" : "{http://www.w3.org/2001/XMLSchema}int",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
                      "value" : "1",
                      "type" : "Literal"
                   }, {
-                     "valueType" : "{http://www.w3.org/2001/XMLSchema}int",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
                      "value" : "1",
+                     "type" : "Literal"
+                  }, {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "0",
+                     "type" : "Literal"
+                  }, {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "0",
+                     "type" : "Literal"
+                  }, {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "0",
+                     "type" : "Literal"
+                  }, {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "0",
                      "type" : "Literal"
                   } ]
                }
@@ -57,41 +96,67 @@ module.exports = {
       },
       "statements" : {
          "def" : [ {
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "type" : "SingletonFrom",
+               "operand" : {
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "patient-qicore-qicore-patient",
+                  "type" : "Retrieve"
+               }
+            }
+         }, {
             "name" : "InDemographic",
-            "context" : "PATIENT",
+            "context" : "Patient",
+            "accessLevel" : "Public",
             "expression" : {
                "type" : "And",
                "operand" : [ {
                   "type" : "GreaterOrEqual",
                   "operand" : [ {
-                     "name" : "AgeAt",
-                     "type" : "FunctionRef",
+                     "precision" : "Year",
+                     "type" : "CalculateAgeAt",
                      "operand" : [ {
-                        "type" : "Begin",
+                        "path" : "birthDate",
+                        "type" : "Property",
+                        "source" : {
+                           "name" : "Patient",
+                           "type" : "ExpressionRef"
+                        }
+                     }, {
+                        "type" : "Start",
                         "operand" : {
                            "name" : "MeasurementPeriod",
                            "type" : "ParameterRef"
                         }
                      } ]
                   }, {
-                     "valueType" : "{http://www.w3.org/2001/XMLSchema}int",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
                      "value" : "2",
                      "type" : "Literal"
                   } ]
                }, {
                   "type" : "Less",
                   "operand" : [ {
-                     "name" : "AgeAt",
-                     "type" : "FunctionRef",
+                     "precision" : "Year",
+                     "type" : "CalculateAgeAt",
                      "operand" : [ {
-                        "type" : "Begin",
+                        "path" : "birthDate",
+                        "type" : "Property",
+                        "source" : {
+                           "name" : "Patient",
+                           "type" : "ExpressionRef"
+                        }
+                     }, {
+                        "type" : "Start",
                         "operand" : {
                            "name" : "MeasurementPeriod",
                            "type" : "ParameterRef"
                         }
                      } ]
                   }, {
-                     "valueType" : "{http://www.w3.org/2001/XMLSchema}int",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
                      "value" : "18",
                      "type" : "Literal"
                   } ]

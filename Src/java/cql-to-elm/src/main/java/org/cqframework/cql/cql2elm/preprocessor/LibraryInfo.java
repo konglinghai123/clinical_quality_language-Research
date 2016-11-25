@@ -8,7 +8,10 @@ public class LibraryInfo {
 
     private final Map<String, UsingDefinitionInfo> usingDefinitions;
     private final Map<String, IncludeDefinitionInfo> includeDefinitions;
+    private final Map<String, CodesystemDefinitionInfo> codesystemDefinitions;
     private final Map<String, ValuesetDefinitionInfo> valuesetDefinitions;
+    private final Map<String, CodeDefinitionInfo> codeDefinitions;
+    private final Map<String, ConceptDefinitionInfo> conceptDefinitions;
     private final Map<String, ParameterDefinitionInfo> parameterDefinitions;
     private final Map<String, ExpressionDefinitionInfo> expressionDefinitions;
     private final Map<String, FunctionDefinitionInfo> functionDefinitions; // TODO: Overloads...
@@ -16,7 +19,10 @@ public class LibraryInfo {
     public LibraryInfo() {
         usingDefinitions = new LinkedHashMap<>();
         includeDefinitions = new LinkedHashMap<>();
+        codesystemDefinitions = new LinkedHashMap<>();
         valuesetDefinitions = new LinkedHashMap<>();
+        codeDefinitions = new LinkedHashMap<>();
+        conceptDefinitions = new LinkedHashMap<>();
         parameterDefinitions = new LinkedHashMap<>();
         expressionDefinitions = new LinkedHashMap<>();
         functionDefinitions = new LinkedHashMap<>();
@@ -90,6 +96,14 @@ public class LibraryInfo {
         return null;
     }
 
+    public void addCodesystemDefinition(CodesystemDefinitionInfo codesystemDefinition) {
+        codesystemDefinitions.put(codesystemDefinition.getName(), codesystemDefinition);
+    }
+
+    public CodesystemDefinitionInfo resolveCodesystemReference(String identifier) {
+        return codesystemDefinitions.get(identifier);
+    }
+
     public void addValuesetDefinition(ValuesetDefinitionInfo valuesetDefinition) {
         valuesetDefinitions.put(valuesetDefinition.getName(), valuesetDefinition);
     }
@@ -105,6 +119,22 @@ public class LibraryInfo {
         }
 
         return null;
+    }
+
+    public void addCodeDefinition(CodeDefinitionInfo codeDefinition) {
+        codeDefinitions.put(codeDefinition.getName(), codeDefinition);
+    }
+
+    public CodeDefinitionInfo resolveCodeReference(String identifier) {
+        return codeDefinitions.get(identifier);
+    }
+
+    public void addConceptDefinition(ConceptDefinitionInfo conceptDefinition) {
+        conceptDefinitions.put(conceptDefinition.getName(), conceptDefinition);
+    }
+
+    public ConceptDefinitionInfo resolveConceptReference(String identifier) {
+        return conceptDefinitions.get(identifier);
     }
 
     public void addExpressionDefinition(ExpressionDefinitionInfo letStatement) {

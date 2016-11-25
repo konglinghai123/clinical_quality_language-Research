@@ -1,29 +1,27 @@
-library CMS153_CQM version '2'
+library ChlamydiaScreening_CQM_UsingCommon version '2'
 
 using QUICK
 
-include CMS153_Common version '2' called Common
+include ChlamydiaScreening_Common version '2' called Common
 
-parameter "Measurement Period" default interval[Date(2013, 1, 1), Date(2014, 1, 1))
+parameter MeasurementPeriod default Interval[DateTime(2013, 1, 1, 0, 0, 0, 0), DateTime(2014, 1, 1, 0, 0, 0, 0))
 
-context PATIENT
+context Patient
 
-define "In Demographic" =
-    AgeInYearsAt(start of "Measurement Period") >= 16
-        and AgeInYearsAt(start of "Measurement Period") < 24
-        and gender in Common."Female Administrative Sex"
+define "In Demographic":
+    AgeInYearsAt(start of MeasurementPeriod) >= 16
+        and AgeInYearsAt(start of MeasurementPeriod) < 24
+        and "Patient"."gender" in Common."Female Administrative Sex"
 
-define "Sexually Active" =
-    exists(Common."Conditions Indicating Sexual Activity" C where C.effectiveTime overlaps "Measurement Period")
-        or exists(Common."Laboratory Tests Indicating Sexual Activity" R where R.effectiveTime during "Measurement Period")
+define "Sexually Active":
+    exists(Common."Conditions Indicating Sexual Activity" C where Interval[C."onsetDateTime", C."abatementDate"] overlaps MeasurementPeriod)
+        or exists(Common."Laboratory Tests Indicating Sexual Activity" O where Last(O."event" E where E."status" = 'completed' sort by E."dateTime")."dateTime" during MeasurementPeriod)
 
-define "In Initial Population" =
+define "In Initial Population":
     "In Demographic" and "Sexually Active"
 
-define "In Denominator" =
+define "In Denominator":
     true
 
-define "In Numerator" =
-    exists (Common."Results Present For Chlamydia Screening" S where S.effectiveTime during "Measurement Period")
-
-
+define "In Numerator":
+    exists (Common."Results Present For Chlamydia Screening" S where S."issued" during MeasurementPeriod)

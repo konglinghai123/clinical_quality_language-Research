@@ -46,27 +46,28 @@ Supplemental Data Elements
 
 using QUICK
 
-valueset "Inpatient" = '2.16.840.1.113883.3.666.5.307'
-valueset "Emergency Department Visit" = '2.16.840.1.113883.3.117.1.7.1.293'
+valueset "Inpatient": '2.16.840.1.113883.3.666.5.307'
+valueset "Emergency Department Visit": '2.16.840.1.113883.3.117.1.7.1.293'
 
-context PATIENT
+parameter MeasurementPeriod default Interval[@2014-01-01T00:00:00.0, @2015-01-01T00:00:00.0)
 
-define InpatientEncounters =
-	[Encounter, Performance: "Inpatient"] E 
-		where E.lengthOfStay <= 120 days 
-			and E.dischargeDateTime during MeasurementPeriod
+context Patient
 
-define EDEncounters =
-	[Encounter, Performance: "Emergency Department Visit"] ED
-		with InpatientEncounters E such that ED.effectiveTime ends 1 hour or less before start of E.effectiveTime
+define "InpatientEncounters":
+	["Encounter": "Inpatient"] E
+		where E."length" <= 120 days
+			and E."period" ends during MeasurementPeriod
 
-define MeasureObservation =
-	EDEncounters E 
-		where E.facilityLocationArrivalDateTime is not null
-			and E.facilityLocationDepartureDateTime is not null
-		return minutes between E.facilityLocationArrivalDateTime and E.facilityLocationDepartureDateTime
+define "EDEncounters":
+	["Encounter": "Emergency Department Visit"] ED
+		with "InpatientEncounters" E such that ED."period" ends 1 hour or less before start of E."period"
 
-context POPULATION
+define "MeasureObservation":
+	"EDEncounters" E
+		where start of E."period" is not null
+			and end of E."period" is not null
+		return duration in minutes of E."period"
 
-define MeasureScore = Median(MeasureObservation)
+context Population
 
+define "MeasureScore": Median("MeasureObservation")
